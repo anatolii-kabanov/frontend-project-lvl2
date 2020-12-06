@@ -1,0 +1,28 @@
+name: mr-meeseeks-linter
+
+# Run this workflow every time a new commit pushed to your repository
+on: push
+
+jobs:
+  make-lint:
+    name: eslint
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [15.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Run make install
+        run: |
+          make install
+        env:
+          CI: true
+      - name: Run make lint
+        run: |
+          make lint
