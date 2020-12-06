@@ -5,9 +5,10 @@
     "name": "@hexlet/code",
     "version": "1.0.0",
     "description": "[![Actions Status](https://github.com/mr-meeseeks-code/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/mr-meeseeks-code/frontend-project-lvl2/actions)",
-    "main": "index.js",
+    "main": "src/generate-difference.js",
     "dependencies": {
-        "commander": "^6.2.0"
+        "commander": "^6.2.0",
+        "lodash": "^4.17.20"
     },
     "devDependencies": {},
     "scripts": {
