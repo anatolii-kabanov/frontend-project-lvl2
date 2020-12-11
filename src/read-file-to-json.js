@@ -3,7 +3,7 @@ import path from 'path';
 import yaml from 'js-yaml';
 
 export default function readFileToJson(filePath) {
-  const data = fs.readFileSync(filePath);
+  const data = fs.readFileSync(filePath, 'utf8');
   const format = path.extname(filePath);
   let parse;
   switch (format) {
