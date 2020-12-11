@@ -51,6 +51,5 @@ test('2 Complex YML test files should have complex-result.json result', () => {
   const firstYml = yaml.load(readFile('complex-test1.yml'));
   const secondYml = yaml.load(readFile('complex-test2.yml'));
   const resultJson = JSON.parse(readFile('complex-result.json'));
-  console.log(JSON.stringify(getDifference(firstYml, secondYml)));
   expect(getDifference(firstYml, secondYml)).toEqual(resultJson);
 });
