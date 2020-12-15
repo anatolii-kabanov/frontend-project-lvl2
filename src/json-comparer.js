@@ -6,7 +6,7 @@ export default function getDifference(firstObject, secondObject) {
     firstObject,
     (result, value, key) => {
       const resultObj = _.cloneDeep(result);
-      if (Object.prototype.hasOwnProperty.call(secondObject, key)) {
+      if (_.has(secondObject, key)) {
         if (_.isEqual(firstObject[key], secondObject[key])) {
           resultObj[key] = value;
         } else if (typeof (value) === 'object' && typeof (secondObject[key]) === 'object') {
