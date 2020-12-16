@@ -6,25 +6,23 @@ export default function getDifference(firstObject, secondObject) {
     firstObject,
     (result, value, key) => {
       const resultObj = _.cloneDeep(result);
-      if (_.has(secondObject, key)) {
-        if (_.isEqual(firstObject[key], secondObject[key])) {
+      if (_.has(secondObj, key)) {
+        if (_.isEqual(firstObject[key], secondObj[key])) {
           resultObj[key] = value;
-        } else if (typeof (value) === 'object' && typeof (secondObject[key]) === 'object') {
-          resultObj[key] = getDifference(value, secondObject[key]);
+        } else if (typeof (value) === 'object' && typeof (secondObj[key]) === 'object') {
+          resultObj[key] = getDifference(value, secondObj[key]);
         } else {
           resultObj[`- ${key}`] = value;
-          resultObj[`+ ${key}`] = secondObject[key];
+          resultObj[`+ ${key}`] = secondObj[key];
         }
         delete secondObj[key];
       } else {
         resultObj[`- ${key}`] = value;
       }
-
       return resultObj;
     },
     {},
   );
-
   const resultObject = _.reduce(
     secondObj,
     (result, value, key) => {
@@ -34,6 +32,5 @@ export default function getDifference(firstObject, secondObject) {
     },
     diff,
   );
-
   return resultObject;
 }
